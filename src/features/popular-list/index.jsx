@@ -53,9 +53,11 @@ export default function PopularList() {
                 <span className='text-xl font-medium'>
                   {Math.floor(product.price).toLocaleString()} сум
                 </span>
-                <span className='text-sm'>
-                  {product.sizes[0].size}-{product.sizes.slice(-1)[0].size}
-                </span>
+                {product.sizes?.length > 0 && (
+                  <span className='text-sm'>
+                    {product.sizes[0].size}-{product.sizes.slice(-1)[0].size}
+                  </span>
+                )}
               </span>
               <Button>Добавить в корзину</Button>
             </div>
