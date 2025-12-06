@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 export default function Footer() {
   return (
-    <footer className='bg-black pt-16 pb-5 px-1'>
+    <footer className='bg-black pt-16 pb-5 px-1 mt-12'>
       <div className='container grid grid-cols-3 mx-auto md:px-4 mb-10'>
         <div>
           <Link to='/'>
@@ -20,10 +20,18 @@ export default function Footer() {
           </div>
         </div>
         <ul className='text-white space-y-5 text-sm'>
-          <li>O KINK</li>
-          <li>События</li>
-          <li>Доставка</li>
-          <li>Контакты</li>
+          <li>
+            <Link to='/about'>О KINK</Link>
+          </li>
+          <li>
+            <Link to='/events'>События</Link>
+          </li>
+          <li>
+            <Link to='/delivery'>Доставка</Link>
+          </li>
+          <li>
+            <Link to='/contact'>Контакты</Link>
+          </li>
           <li className='flex gap-3'>
             <img className='w-7 h-7' src='icons/facebook.svg' alt='facebook' />
             <img

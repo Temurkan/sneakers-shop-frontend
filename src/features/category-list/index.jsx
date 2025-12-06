@@ -12,6 +12,7 @@ export default function CategoriesList() {
       try {
         const response = await api.get('categories/')
         console.log('API cat:', response.data)
+        console.log('API cat:', response.data)
 
         setCategories(response.data)
       } catch (error) {
@@ -26,7 +27,7 @@ export default function CategoriesList() {
       <h2 className='mb-6'>Купить по категориям</h2>
       <div className='grid grid-cols-5 gap-3'>
         {categories.map((category, i) => (
-          <Link key={category.id} to={`/${category.slug}`}>
+          <Link key={category.id} to={`/category/${category.id}`}>
             <div
               className='h-45 flex items-center justify-center'
               style={{ backgroundColor: colors[i % colors.length] }}

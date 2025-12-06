@@ -1,50 +1,66 @@
-import { useState } from "react"
-import { Link } from "react-router-dom"
-import { v4 as uuidv4 } from "uuid"
+import SearchProducts from '@/features/search/index.jsx'
+import { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
+import { v4 as uuidv4 } from 'uuid'
 
 const lan = [
   {
     id: uuidv4(),
-    label: "OZBEK",
-    src: "icons/uz_lan.svg",
-    alt: "uz",
-    lan: "uz",
+    label: 'OZBEK',
+    src: 'icons/uz_lan.svg',
+    alt: 'uz',
+    lan: 'uz',
   },
   {
     id: uuidv4(),
-    label: "РУССКИЙ",
-    src: "icons/ru_lan.svg",
-    alt: "ru",
-    lan: "ru",
+    label: 'РУССКИЙ',
+    src: 'icons/ru_lan.svg',
+    alt: 'ru',
+    lan: 'ru',
   },
   {
     id: uuidv4(),
-    label: "ENGLISH",
-    src: "icons/en_lan.svg",
-    alt: "en",
-    lan: "en",
+    label: 'ENGLISH',
+    src: 'icons/en_lan.svg',
+    alt: 'en',
+    lan: 'en',
   },
 ]
 
 const icons = [
-  { id: uuidv4(), src: "icons/search.svg", alt: "search" },
-  { id: uuidv4(), src: "icons/bag.svg", alt: "bag" },
-  { id: uuidv4(), src: "icons/user.svg", alt: "user" },
+  { id: uuidv4(), src: 'icons/search.svg', alt: 'search' },
+  { id: uuidv4(), src: 'icons/bag.svg', alt: 'bag' },
+  { id: uuidv4(), src: 'icons/user.svg', alt: 'user' },
 ]
 
 const links = [
-  { id: uuidv4(), label: "Новинки", href: "/new-arrival" },
-  { id: uuidv4(), label: "Мужчины", href: "/mens" },
-  { id: uuidv4(), label: "Женщины", href: "/womens" },
-  { id: uuidv4(), label: "Бренды" },
+  { id: uuidv4(), label: 'Новинки', href: '/new-arrival' },
+  { id: uuidv4(), label: 'Мужчины', href: '/mens' },
+  { id: uuidv4(), label: 'Женщины', href: '/womens' },
+  { id: uuidv4(), label: 'Бренды' },
 ]
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
-  const [lang, setLang] = useState("uz")
+  const [lang, setLang] = useState('uz')
   const toggleMenu = () => setIsOpen(!isOpen)
+  const [searchOpen, setSearchOpen] = useState(false)
+  const wrapperRef = useRef(null)
+
   const currentLang = lan.find((l) => l.lan === lang)
+  useEffect(() => {
+    if (!searchOpen) return
+
+    function handleOutsideClick(e) {
+      if (wrapperRef.current && !wrapperRef.current.contains(e.target)) {
+        setSearchOpen(false)
+      }
+    }
+
+    document.addEventListener('mousedown', handleOutsideClick)
+    return () => document.removeEventListener('mousedown', handleOutsideClick)
+  }, [searchOpen])
 
   return (
     <nav className='container flex justify-between items-center py-6 mx-auto px-1 md:px-4'>
@@ -67,8 +83,8 @@ export default function Navbar() {
         <button className='cursor-pointer' onClick={toggleMenu}>
           <img
             className='flex md:hidden w-[27px]'
-            src={isOpen ? "icons/close.svg" : "icons/menu.svg"}
-            alt={isOpen ? "close" : "menu"}
+            src={isOpen ? 'icons/close.svg' : 'icons/menu.svg'}
+            alt={isOpen ? 'close' : 'menu'}
           />
         </button>
 
@@ -103,13 +119,36 @@ export default function Navbar() {
             </div>
           )}
         </div>
-
-        {/* NAV ICON */}
-        {icons.map((icon) => (
-          <button key={icon.id} className='cursor-pointer'>
-            <img className='w-6' src={icon.src} alt={icon.alt} />
-          </button>
-        ))}
+        <div ref={wrapperRef} className='relative flex gap-3'>
+          {icons.map((icon) => {
+            if (icon.alt === 'search') {
+              return (
+                <button
+                  key={icon.id}
+                  className='cursor-pointer'
+                  onClick={(e) => {
+                    e.stopPropagation() // ✅ ВОТ ЭТО СПАСАЕТ
+                    if (icon.alt === 'search') {
+                      setSearchOpen((prev) => !prev)
+                    }
+                  }}
+                >
+                  <img className='w-6' src={icon.src} alt={icon.alt} />
+                </button>
+              )
+            }
+            return (
+              <button key={icon.id} className='cursor-pointer'>
+                <img className='w-6' src={icon.src} alt={icon.alt} />
+              </button>
+            )
+          })}
+          {searchOpen && (
+            <div className='absolute right-0 top-10 z-50'>
+              <SearchProducts onClose={() => setSearchOpen(false)} />
+            </div>
+          )}
+        </div>
       </span>
     </nav>
   )

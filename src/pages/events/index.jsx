@@ -1,5 +1,9 @@
-import React from "react"
+import React from 'react'
 
 export default function EventsPage() {
-  return <div>EventsPage</div>
+  return (
+    <div className='container flex flex-col mx-auto px-1 md:px-4'>
+      EventsPage
+    </div>
+  )
 }

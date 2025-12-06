@@ -24,7 +24,10 @@ export default function CapsPage() {
 
   return (
     <main className='container mt-24 mx-auto max-w-7xl'>
-      <h2 className='mb-6'>Кепки</h2>
+      <h2 className='mb-6 text-2xl font-bold'>
+        {products.find((p) => p.category.slug === 'caps')?.category.name}
+      </h2>
+
       <div className='grid grid-cols-5 gap-3'>
         {products
           .filter((p) => p.category.slug === 'caps')

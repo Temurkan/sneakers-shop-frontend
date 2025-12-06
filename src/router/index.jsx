@@ -9,8 +9,7 @@ import ProductPage from '@/pages/product'
 import EventsPage from '@/pages/events'
 import DeliveryPage from '@/pages/delivery'
 import NewArrival from '@/pages/new-arrival'
-import CapsPage from '@/pages/caps'
-import SneakersPage from '@/pages/sneakers/index.jsx'
+import CategoryPage from '@/pages/category/index.jsx'
 
 const router = createBrowserRouter([
   {
@@ -26,8 +25,8 @@ const router = createBrowserRouter([
       { path: 'events', element: <EventsPage /> },
       { path: 'delivery', element: <DeliveryPage /> },
       { path: 'new-arrival', element: <NewArrival /> },
-      { path: 'caps', element: <CapsPage /> },
-      { path: 'sneakers', element: <SneakersPage /> },
+      { path: 'category/:id', element: <CategoryPage /> },
+      { path: 'product/:id', element: <ProductPage /> },
     ],
   },
 ])
