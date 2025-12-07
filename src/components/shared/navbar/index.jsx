@@ -7,30 +7,30 @@ const lan = [
   {
     id: uuidv4(),
     label: 'OZBEK',
-    src: 'icons/uz_lan.svg',
+    src: '/icons/uz_lan.svg',
     alt: 'uz',
     lan: 'uz',
   },
   {
     id: uuidv4(),
     label: 'РУССКИЙ',
-    src: 'icons/ru_lan.svg',
+    src: '/icons/ru_lan.svg',
     alt: 'ru',
     lan: 'ru',
   },
   {
     id: uuidv4(),
     label: 'ENGLISH',
-    src: 'icons/en_lan.svg',
+    src: '/icons/en_lan.svg',
     alt: 'en',
     lan: 'en',
   },
 ]
 
 const icons = [
-  { id: uuidv4(), src: 'icons/search.svg', alt: 'search' },
-  { id: uuidv4(), src: 'icons/bag.svg', alt: 'bag' },
-  { id: uuidv4(), src: 'icons/user.svg', alt: 'user' },
+  { id: uuidv4(), src: '/icons/search.svg', alt: 'search' },
+  { id: uuidv4(), src: '/icons/bag.svg', alt: 'bag' },
+  { id: uuidv4(), src: '/icons/user.svg', alt: 'user' },
 ]
 
 const links = [
@@ -83,7 +83,7 @@ export default function Navbar() {
         <button className='cursor-pointer' onClick={toggleMenu}>
           <img
             className='flex md:hidden w-[27px]'
-            src={isOpen ? 'icons/close.svg' : 'icons/menu.svg'}
+            src={isOpen ? '/icons/close.svg' : '/icons/menu.svg'}
             alt={isOpen ? 'close' : 'menu'}
           />
         </button>

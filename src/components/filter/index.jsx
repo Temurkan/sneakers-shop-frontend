@@ -87,7 +87,7 @@ export default function Filters({ onFilter, options }) {
             >
               <input
                 type='checkbox'
-                className='rounded border-gray-300 text-black focus:ring-black'
+                className='border-gray-300 text-black focus:ring-black accent-black'
                 checked={filters.gender.includes(g)}
                 onChange={() => toggleFilter('gender', g)}
               />
@@ -113,7 +113,7 @@ export default function Filters({ onFilter, options }) {
               >
                 <input
                   type='checkbox'
-                  className='rounded border-gray-300 text-black focus:ring-black'
+                  className='rounded border-gray-300 text-black focus:ring-black accent-black'
                   checked={filters.brand.includes(brand.id)}
                   onChange={() => toggleFilter('brand', brand.id)}
                 />
@@ -167,7 +167,7 @@ export default function Filters({ onFilter, options }) {
                 >
                   <input
                     type='checkbox'
-                    className='rounded border-gray-300 text-black focus:ring-black'
+                    className='border-gray-300 text-black focus:ring-black accent-black'
                     checked={filters.material.includes(m)}
                     onChange={() => toggleFilter('material', m)}
                   />

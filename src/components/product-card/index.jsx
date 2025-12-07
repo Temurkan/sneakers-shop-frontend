@@ -28,7 +28,7 @@ export default function ProductCard({ product }) {
           </div>
 
           {/* Бренд */}
-          <span className='text-xs font-semibold text-gray-400 uppercase tracking-wide'>
+          <span className='text-xs text-gray-400 tracking-wide'>
             {product.brand?.name}
           </span>
 

@@ -12,10 +12,10 @@ export default function Footer() {
           <div className='space-y-3 ml-2 mt-3'>
             <div className='text-white'>К оплате принимаем:</div>
             <div className='flex gap-3'>
-              <img className='w-7 h-7' src='click.png' alt='click' />
-              <img className='w-7 h-7' src='payme.png' alt='payme' />
-              <img className='w-7 h-7' src='icons/card.svg' alt='card' />
-              <img className='w-7 h-7' src='icons/wallet.svg' alt='wallet' />
+              <img className='w-7 h-7' src='/click.png' alt='click' />
+              <img className='w-7 h-7' src='/payme.png' alt='payme' />
+              <img className='w-7 h-7' src='/icons/card.svg' alt='card' />
+              <img className='w-7 h-7' src='/icons/wallet.svg' alt='wallet' />
             </div>
           </div>
         </div>
@@ -33,33 +33,33 @@ export default function Footer() {
             <Link to='/contact'>Контакты</Link>
           </li>
           <li className='flex gap-3'>
-            <img className='w-7 h-7' src='icons/facebook.svg' alt='facebook' />
+            <img className='w-7 h-7' src='/icons/facebook.svg' alt='facebook' />
             <img
               className='w-7 h-7'
-              src='icons/instagram.svg'
+              src='/icons/instagram.svg'
               alt='instagram'
             />
-            <img className='w-7 h-7' src='icons/telegram.svg' alt='telegram' />
+            <img className='w-7 h-7' src='/icons/telegram.svg' alt='telegram' />
           </li>
         </ul>
         <ul className='text-white text-sm space-y-5'>
           <li className='space-y-2'>
             <span className='flex -ml-6 gap-1'>
-              <img className='w-4' src='icons/location.svg' alt='location' />
+              <img className='w-4' src='/icons/location.svg' alt='location' />
               <h5 className='font-semibold'>Адрес</h5>
             </span>
             <p className='font-light'>ул.Паркент 283</p>
           </li>
           <li className='space-y-2'>
             <span className='flex -ml-6 gap-1'>
-              <img className='w-4' src='icons/calendar.svg' alt='calendar' />
+              <img className='w-4' src='/icons/calendar.svg' alt='calendar' />
               <h5 className='font-semibold'>График</h5>
             </span>
             <p className='font-light'>Работаем без выходных с 11:00 до 21:00</p>
           </li>
           <li className='space-y-2'>
             <span className='flex -ml-6 gap-1'>
-              <img className='w-4' src='icons/call.svg' alt='call' />
+              <img className='w-4' src='/icons/call.svg' alt='call' />
               <h5 className='font-semibold'>Телефон</h5>
             </span>
             <p className='font-light'>(+998) 90 924 87 61</p>

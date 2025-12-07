@@ -125,15 +125,10 @@ export default function CategoryPage() {
 
   return (
     <main className='container mx-auto max-w-7xl px-2 md:px-4 py-8 flex flex-col md:flex-row gap-8 items-start'>
-      {/* Сайдбар (Фильтры) - sticky позволяет ему "прилипать" при скролле */}
       <div className='w-full md:w-64 shrink-0 md:sticky md:top-4'>
-        <Filters
-          onFilter={handleFilter}
-          options={filterOptions} // Передаем все опции одним объектом
-        />
+        <Filters onFilter={handleFilter} options={filterOptions} />
       </div>
 
-      {/* Сетка продуктов */}
       <div className='flex-1 w-full'>
         <h1 className='text-2xl font-bold mb-6'>
           {category.name}{' '}
