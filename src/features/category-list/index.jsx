@@ -35,7 +35,7 @@ export default function CategoriesList() {
               <div className="w-40">
                 <img
                   className="object-contain"
-                  src={`${import.meta.env.VITE_API_URL}/${category.image}`}
+                  src={`${import.meta.env.VITE_API_URL}${category.image}`}
                 />
               </div>
             </div>
