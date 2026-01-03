@@ -23,7 +23,7 @@ export default function CategoriesList() {
     loadCategories();
   }, []);
   return (
-    <section className="container mt-24 mx-auto max-w-7xl">
+    <section className="mt-24 container mx-auto max-w-7xl px-1 md:px-4">
       <h2 className="mb-6">{translations[language].category}</h2>
       <div className="grid grid-cols-5 gap-3">
         {categories.map((category, i) => (
